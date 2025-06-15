@@ -136,7 +136,12 @@ pub fn main() !void {
     ;
 
     // now the tokenizer, but what do we need here?
-    var it = std.mem.tokenizeAny(u8, poem, ???);
+    const separator = [_]u8{ ' ', '\n', ',', ';', '!' };
+    var it = std.mem.tokenizeAny(
+        u8,
+        poem,
+        &separator,
+    );
 
     // print all words and count them
     var cnt: usize = 0;
